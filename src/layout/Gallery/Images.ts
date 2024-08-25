@@ -24,10 +24,6 @@ const images = [   /* 이미지 경로를 리스트로 저장 */
     source: image01,
   },
   {
-    alt: 'image02',
-    source: image02,
-  },
-  {
     alt: 'image03',
     source: image03,
   },{
