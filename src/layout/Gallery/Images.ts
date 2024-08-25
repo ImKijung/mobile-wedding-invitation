@@ -1,5 +1,4 @@
 import image01 from '@/assets/images/01.jpeg'
-import image02 from '@/assets/images/02.jpeg'
 import image03 from '@/assets/images/03.jpeg'
 import image04 from '@/assets/images/04.jpeg'
 import image05 from '@/assets/images/05.jpeg'
