@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
-import { ref, get } from 'firebase/database';
-import { realtimeDb } from '../../firebase.ts';
+import styled from '@emotion/styled';
+import { get, ref } from 'firebase/database';
 import CommentForm from './CommentForm.tsx';
+import { realtimeDb } from '../../firebase.ts';
 import { Heading2 } from '@/components/Text.tsx';
 
 interface GuestbookEntry {
@@ -21,7 +21,7 @@ const Guestbook = () => {
       try {
         const snapshot = await get(guestbookRef);
         if (snapshot.exists()) {
-          const data = snapshot.val();
+          const data = snapshot.val() as Record<string, GuestbookEntry>; // 명시적으로 타입 지정
           const entriesArray = Object.keys(data).map((key) => ({
             createdAt: data[key].createdAt,
             date: data[key].date,
@@ -36,8 +36,7 @@ const Guestbook = () => {
         console.error('Error fetching guestbook entries:', error);
       }
     };
-
-    fetchEntries();
+    void fetchEntries();  // void 연산자를 사용하여 비동기 호출의 반환 값을 무시
   }, []);
 
   return (
