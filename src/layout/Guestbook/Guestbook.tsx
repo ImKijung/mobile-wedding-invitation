@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import CommentForm from './CommentForm.tsx';
 import myDb from './guestbook.json';
-import { Heading2 } from '@/components/Text.tsx';
 
 interface GuestbookEntry {
   createdAt: number;
